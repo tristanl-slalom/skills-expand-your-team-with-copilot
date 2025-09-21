@@ -1,0 +1,110 @@
+name: Bug Report
+description: Report a problem with the website or activity system
+title: "Bug: [SHORT DESCRIPTION OF PROBLEM]"
+labels: ["bug", "teacher-report"]
+assignees: ["@copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please provide as much detail as possible to help us fix the issue.
+  
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem Description
+      description: What's not working?
+      placeholder: Describe the problem clearly
+    validations:
+      required: true
+  
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+      placeholder: Describe what you expected to happen
+    validations:
+      required: true
+  
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: How can we recreate this problem?
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. Scroll down to...
+        4. See error
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: affected-areas
+    attributes:
+      label: Page/Area Affected
+      description: Which part of the website has the problem?
+      options:
+        - label: Main activities page
+        - label: Student registration
+        - label: Teacher login
+        - label: Activity filtering
+        - label: Other (describe below)
+  
+  - type: textarea
+    id: error-messages
+    attributes:
+      label: Error Messages
+      description: Copy any error messages exactly as they appear
+      placeholder: Paste any error messages here
+  
+  - type: input
+    id: when-happened
+    attributes:
+      label: When did this happen?
+      description: Date and approximate time
+      placeholder: e.g., "December 15, 2023 around 2:00 PM"
+  
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency
+      description: How critical is this issue?
+      options:
+        - Critical - System is unusable
+        - High - Major functionality broken
+        - Medium - Some features affected
+        - Low - Minor inconvenience
+    validations:
+      required: true
+  
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: Which browser are you using?
+      placeholder: e.g., Chrome, Firefox, Safari
+  
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: What device are you using?
+      placeholder: e.g., Computer, tablet, phone
+  
+  - type: input
+    id: reporting-teacher
+    attributes:
+      label: Reporting Teacher
+      description: Your name for follow-up
+      placeholder: Your name
+    validations:
+      required: true
+  
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other details that might help us understand the problem
+      placeholder: Screenshots, additional information, etc.

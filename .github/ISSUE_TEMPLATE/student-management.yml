@@ -1,0 +1,112 @@
+name: Student Management Request
+description: Add or remove students from activities
+title: "Student Management: [ADD/REMOVE] students [TO/FROM] [ACTIVITY NAME]"
+labels: ["student-management", "teacher-request"]
+assignees: ["@copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to add or remove students from activities.
+  
+  - type: dropdown
+    id: action-type
+    attributes:
+      label: Type of Request
+      description: What type of change do you need?
+      options:
+        - Add student(s) to activity
+        - Remove student(s) from activity
+        - Transfer student from one activity to another
+    validations:
+      required: true
+  
+  - type: input
+    id: activity-name
+    attributes:
+      label: Activity Name
+      description: Enter the exact activity name as it appears in the system
+      placeholder: e.g., "Chess Club", "Programming Class"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: students-to-add
+    attributes:
+      label: Students to Add
+      description: List student email addresses (one per line)
+      placeholder: |
+        john@mergington.edu
+        jane@mergington.edu
+  
+  - type: textarea
+    id: students-to-remove
+    attributes:
+      label: Students to Remove
+      description: List student email addresses (one per line)
+      placeholder: |
+        john@mergington.edu
+        jane@mergington.edu
+  
+  - type: input
+    id: from-activity
+    attributes:
+      label: From Activity (for transfers)
+      description: For transfer requests only
+      placeholder: Current activity name
+  
+  - type: input
+    id: to-activity
+    attributes:
+      label: To Activity (for transfers)
+      description: For transfer requests only
+      placeholder: New activity name
+  
+  - type: input
+    id: transfer-student
+    attributes:
+      label: Student Email (for transfers)
+      description: For transfer requests only
+      placeholder: student@mergington.edu
+  
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for Change
+      description: Brief explanation of why this change is needed
+      placeholder: Explain the reason for this request
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: authorization
+    attributes:
+      label: Authorization
+      description: Confirm you have permission to make this change
+      options:
+        - label: I have authorization to modify student enrollments
+          required: true
+        - label: Students/parents have been notified (if required)
+  
+  - type: input
+    id: requesting-teacher
+    attributes:
+      label: Requesting Teacher
+      description: Your name and role
+      placeholder: Your name and title
+    validations:
+      required: true
+  
+  - type: input
+    id: date-needed
+    attributes:
+      label: Date Needed
+      description: When should this change take effect?
+      placeholder: e.g., "January 15, 2024"
+  
+  - type: textarea
+    id: special-considerations
+    attributes:
+      label: Special Considerations
+      description: Any important notes or restrictions
+      placeholder: Any additional information that might be relevant

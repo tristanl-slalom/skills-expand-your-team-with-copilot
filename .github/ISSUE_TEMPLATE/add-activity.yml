@@ -1,0 +1,112 @@
+name: Add New Activity
+description: Request to add a new extracurricular activity to the system
+title: "Add New Activity: [ACTIVITY NAME]"
+labels: ["enhancement", "activity", "teacher-request"]
+assignees: ["@copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for requesting a new activity! Please fill out the information below to help us add it to the system.
+  
+  - type: input
+    id: activity-name
+    attributes:
+      label: Activity Name
+      description: Enter the name of the new activity
+      placeholder: e.g., "Robotics Club", "Art Club"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide a clear description of what this activity involves
+      placeholder: Describe the activities, goals, and what students will do
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: schedule-days
+    attributes:
+      label: Meeting Days
+      description: Select which days this activity meets
+      options:
+        - label: Monday
+        - label: Tuesday
+        - label: Wednesday
+        - label: Thursday
+        - label: Friday
+        - label: Saturday
+        - label: Sunday
+  
+  - type: input
+    id: start-time
+    attributes:
+      label: Start Time
+      description: When does the activity start?
+      placeholder: e.g., "3:30 PM" or "07:15 AM"
+    validations:
+      required: true
+  
+  - type: input
+    id: end-time
+    attributes:
+      label: End Time
+      description: When does the activity end?
+      placeholder: e.g., "5:00 PM" or "08:00 AM"
+    validations:
+      required: true
+  
+  - type: input
+    id: max-participants
+    attributes:
+      label: Maximum Participants
+      description: How many students can participate?
+      placeholder: e.g., "20"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: initial-participants
+    attributes:
+      label: Initial Participants (Optional)
+      description: List any students already signed up (one email per line)
+      placeholder: |
+        john@mergington.edu
+        jane@mergington.edu
+  
+  - type: input
+    id: teacher-supervisor
+    attributes:
+      label: Teacher/Supervisor
+      description: Your name and contact information
+      placeholder: Your name
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How urgent is this request?
+      options:
+        - High
+        - Medium
+        - Low
+    validations:
+      required: true
+  
+  - type: textarea
+    id: special-requirements
+    attributes:
+      label: Special Requirements
+      description: Any special considerations, equipment needs, or restrictions
+      placeholder: Describe any special needs for this activity
+  
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **For Copilot Agent:** This request requires updating the `initial_activities` dictionary in `src/backend/database.py` with the new activity information following the existing format. The activity should include all required fields: description, schedule, schedule_details (with days array and start_time/end_time in 24-hour format), max_participants, and participants array.
