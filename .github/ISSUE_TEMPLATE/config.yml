@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Development Documentation
+    url: https://github.com/tristanl-slalom/skills-expand-your-team-with-copilot/blob/main/docs/how-to-develop.md
+    about: Check the development guide for technical information
